@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_offline/flutter_offline.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:movie_app/core/assets/assets.dart';
 import '../../../Home/presentation/pages/home.dart';
@@ -51,7 +52,12 @@ class _MainLayoutState extends State<MainLayout> {
               } else {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [SvgPicture.asset(Assets.noInternet)],
+                  children: [SizedBox(
+                      height: 300,
+                      child: SvgPicture.asset(Assets.noInternet))
+                  ,16.verticalSpace
+                  ,const Text("No Internet Connection.... try reconnect",style: TextStyle(color: Colors.white),)
+                  ],
                 );
               }
             },

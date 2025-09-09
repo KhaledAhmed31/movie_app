@@ -33,14 +33,27 @@ class _SearchState extends State<Search> with AutomaticKeepAliveClientMixin {
     return BlocProvider<SearchCubit>(
       create: (context) => getIt.get<SearchCubit>(),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15.0.w, vertical: 18.h),
+        padding: EdgeInsets.symmetric(horizontal: 15.0.w, ),
         child: SafeArea(
-          child: Column(
-            children: [
-              CustomSearchBar(pageController: null, controller: controller),
-              const SizedBox(height: 20),
-               SearchResultList(controller: controller,),
-            ],
+          child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: SizedBox(height: 5.h),
+              ),
+              SliverAppBar(
+                floating: true,automaticallyImplyLeading: true,
+                  titleSpacing: 0,
+                  toolbarHeight: 60,backgroundColor: Colors.transparent,
+               title:  CustomSearchBar(controller: controller),
+                  ),
+              const SliverToBoxAdapter(child: SizedBox(height: 10)),
+              SliverList(delegate: SliverChildListDelegate([
+                SearchResultList(controller: controller)
+              ]))
+
+
+
+            ]
           ),
         ),
       ),

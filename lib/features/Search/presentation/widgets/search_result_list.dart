@@ -20,29 +20,31 @@ class SearchResultList extends StatelessWidget {
     return BlocBuilder<SearchCubit, SearchState>(
       builder: (context, state) {
         if (state is SearchLoadingState) {
-          return const Expanded(
-            child: Center(
-              child: CircularProgressIndicator(color: AppColors.lightBlue),
-            ),
+          return  Column(
+            children: [
+              SizedBox(height: (MediaQuery.sizeOf(context).height/3).h,),
+             const Center(
+                child: CircularProgressIndicator(color: AppColors.lightBlue),
+              ),
+            ],
           );
         } else if (state is SearchLoadedState) {
           final movies = cubit.movies;
           if (movies.isEmpty) {
-            return Expanded(
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(Assets.notFound),
-                    Text(
-                      "No result found",
-                      style: FontManager.getPoppinsRegularStyle(
-                        fontSize: 13.sp,
-                        color: const Color.fromARGB(157, 255, 255, 255),
-                      ),
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(height: (MediaQuery.sizeOf(context).height/4).h,),
+                  SvgPicture.asset(Assets.notFound),
+                  Text(
+                    "No result found",
+                    style: FontManager.getPoppinsRegularStyle(
+                      fontSize: 13.sp,
+                      color: const Color.fromARGB(157, 255, 255, 255),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             );
           }
@@ -68,7 +70,12 @@ class SearchResultList extends StatelessWidget {
             ),
           );
         } else if (state is SearchErrorState) {
-          return Center(child: Text(state.message));
+          return Column(
+            children: [
+              SizedBox(height: (MediaQuery.sizeOf(context).height/4).h,),
+              Center(child: Text(state.message)),
+            ],
+          );
         } else {
           return const SizedBox();
         }

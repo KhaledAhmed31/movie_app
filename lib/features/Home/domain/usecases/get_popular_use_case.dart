@@ -1,9 +1,9 @@
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/core/di/dependency_injection.dart';
-import 'package:movie_app/core/errors/failure/failure.dart';
-import 'package:movie_app/features/Home/data/datasources/popular_data_source.dart';
-import 'package:movie_app/features/Home/domain/entities/section_movies_entity.dart';
-import 'package:movie_app/features/Home/domain/repositories/movies_sections_repo_interface.dart';
+import '../../../../core/di/dependency_injection.dart';
+import '../../../../core/errors/failure/failure.dart';
+import '../../data/datasources/popular_data_source.dart';
+import '../entities/section_movies_entity.dart';
+import '../repositories/movies_sections_repo_interface.dart';
 
 @lazySingleton
 class GetPopularUseCase {

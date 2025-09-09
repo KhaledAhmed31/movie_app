@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/features/Home/domain/entities/section_movies_entity.dart';
-import 'package:movie_app/features/Home/presentation/widgets/section_movie_card.dart';
+import '../../domain/entities/section_movies_entity.dart';
+import 'section_movie_card.dart';
 
 class MoviesGrid extends StatelessWidget {
   const MoviesGrid({

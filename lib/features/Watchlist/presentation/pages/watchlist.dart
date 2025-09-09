@@ -3,12 +3,12 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/core/colors/app_colors.dart';
-import 'package:movie_app/core/di/dependency_injection.dart';
-import 'package:movie_app/core/font/font_manager.dart';
-import 'package:movie_app/features/Watchlist/presentation/cubit/watchlist_cubit.dart';
-import 'package:movie_app/features/Watchlist/presentation/cubit/watchlist_state.dart';
-import 'package:movie_app/features/Watchlist/presentation/widgets/watchlist_card.dart';
+import '../../../../core/colors/app_colors.dart';
+import '../../../../core/di/dependency_injection.dart';
+import '../../../../core/font/font_manager.dart';
+import '../cubit/watchlist_cubit.dart';
+import '../cubit/watchlist_state.dart';
+import '../widgets/watchlist_card.dart';
 import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart'
     hide RefreshIndicator;
 

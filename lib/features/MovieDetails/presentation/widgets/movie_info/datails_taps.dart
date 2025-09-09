@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/core/colors/app_colors.dart';
-import 'package:movie_app/core/font/font_manager.dart';
-import 'package:movie_app/features/Home/presentation/widgets/tap_item.dart';
-import 'package:movie_app/features/MovieDetails/domain/entities/movie_details_entity.dart';
+import '../../../../../core/colors/app_colors.dart';
+import '../../../../../core/font/font_manager.dart';
+import '../../../../Home/presentation/widgets/tap_item.dart';
+import '../../../domain/entities/movie_details_entity.dart';
 
 class DetailsTabs extends StatefulWidget {
   const DetailsTabs({super.key, required this.movie});

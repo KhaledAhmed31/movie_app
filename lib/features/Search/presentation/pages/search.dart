@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/core/di/dependency_injection.dart';
-import 'package:movie_app/features/Home/presentation/widgets/custom_search_bar.dart';
-import 'package:movie_app/features/Search/presentation/cubit/search_cubit.dart';
-import 'package:movie_app/features/Search/presentation/widgets/search_result_list.dart';
+import '../../../../core/di/dependency_injection.dart';
+import '../../../Home/presentation/widgets/custom_search_bar.dart';
+import '../cubit/search_cubit.dart';
+import '../widgets/search_result_list.dart';
 
 class Search extends StatefulWidget {
   const Search({super.key});

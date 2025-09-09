@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:movie_app/core/assets/assets.dart';
-import 'package:movie_app/core/colors/app_colors.dart';
-import 'package:movie_app/core/di/dependency_injection.dart';
-import 'package:movie_app/core/font/font_manager.dart';
-import 'package:movie_app/features/Home/presentation/widgets/movies_grid.dart';
-import 'package:movie_app/features/Home/presentation/widgets/page_indecator.dart';
-import 'package:movie_app/features/Search/presentation/cubit/search_cubit.dart';
-import 'package:movie_app/features/Search/presentation/cubit/search_state.dart';
+import '../../../../core/assets/assets.dart';
+import '../../../../core/colors/app_colors.dart';
+import '../../../../core/di/dependency_injection.dart';
+import '../../../../core/font/font_manager.dart';
+import '../../../Home/presentation/widgets/movies_grid.dart';
+import '../../../Home/presentation/widgets/page_indecator.dart';
+import '../cubit/search_cubit.dart';
+import '../cubit/search_state.dart';
 
 class SearchResultList extends StatelessWidget {
   const SearchResultList({super.key, required this.controller});

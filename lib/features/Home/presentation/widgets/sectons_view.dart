@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/core/colors/app_colors.dart';
-import 'package:movie_app/features/Home/presentation/widgets/now_playing/now_playing_view.dart';
-import 'package:movie_app/features/Home/presentation/widgets/popular/popular_view.dart';
-import 'package:movie_app/features/Home/presentation/widgets/tap_item.dart';
-import 'package:movie_app/features/Home/presentation/widgets/top_rated/top_rated_view.dart';
-import 'package:movie_app/features/Home/presentation/widgets/up_coming/up_coming_view.dart';
+import '../../../../core/colors/app_colors.dart';
+import 'now_playing/now_playing_view.dart';
+import 'popular/popular_view.dart';
+import 'tap_item.dart';
+import 'top_rated/top_rated_view.dart';
+import 'up_coming/up_coming_view.dart';
 
 class SectonsView extends StatefulWidget {
   const SectonsView({super.key});

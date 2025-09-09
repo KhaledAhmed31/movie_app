@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/core/api/consts/api_consts.dart';
-import 'package:movie_app/core/errors/remote/remote_exception.dart';
-import 'package:movie_app/core/errors/remote/search_exception.dart';
-import 'package:movie_app/features/Home/data/models/movies_sections_response.dart';
+import '../../../../core/api/consts/api_consts.dart';
+import '../../../../core/errors/remote/remote_exception.dart';
+import '../../../../core/errors/remote/search_exception.dart';
+import '../../../Home/data/models/movies_sections_response.dart';
 
 @lazySingleton
 class SearchDataSource {

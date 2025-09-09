@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/core/api/consts/api_consts.dart';
+import '../api/consts/api_consts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 @module

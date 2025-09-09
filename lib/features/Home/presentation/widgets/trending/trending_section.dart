@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/core/colors/app_colors.dart';
-import 'package:movie_app/core/di/dependency_injection.dart';
-import 'package:movie_app/core/font/font_manager.dart';
-import 'package:movie_app/features/Home/presentation/cubits/trending_cubit/trending_cubit.dart';
-import 'package:movie_app/features/Home/presentation/cubits/trending_cubit/trending_state.dart';
-import 'package:movie_app/features/Home/presentation/widgets/trending/trending_card.dart';
+import '../../../../../core/colors/app_colors.dart';
+import '../../../../../core/di/dependency_injection.dart';
+import '../../../../../core/font/font_manager.dart';
+import '../../cubits/trending_cubit/trending_cubit.dart';
+import '../../cubits/trending_cubit/trending_state.dart';
+import 'trending_card.dart';
 import 'package:redacted/redacted.dart';
 
 class TrendingSection extends StatelessWidget {

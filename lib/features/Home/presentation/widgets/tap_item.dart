@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/core/font/font_manager.dart';
+import '../../../../core/font/font_manager.dart';
 
 class TapItem extends StatelessWidget {
   const TapItem({super.key, required this.title});

@@ -1,11 +1,11 @@
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/core/errors/app_exception.dart';
-import 'package:movie_app/core/errors/failure/failure.dart';
-import 'package:movie_app/features/MovieDetails/domain/entities/movie_details_entity.dart';
-import 'package:movie_app/features/Watchlist/data/datasources/watchlist_data_source.dart';
-import 'package:movie_app/features/Watchlist/data/mapper/watchlist_mapper.dart';
-import 'package:movie_app/features/Watchlist/data/models/watch_list_model.dart';
-import 'package:movie_app/features/Watchlist/domain/entity/watchlist_entity.dart';
+import '../../../../core/errors/app_exception.dart';
+import '../../../../core/errors/failure/failure.dart';
+import '../../../MovieDetails/domain/entities/movie_details_entity.dart';
+import '../datasources/watchlist_data_source.dart';
+import '../mapper/watchlist_mapper.dart';
+import '../models/watch_list_model.dart';
+import '../../domain/entity/watchlist_entity.dart';
 @singleton
 class WatchlistRepo {
   final WatchlistDataSource _watchlistDataSource;

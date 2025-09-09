@@ -1,6 +1,6 @@
-import 'package:movie_app/features/MovieDetails/domain/entities/movie_details_entity.dart';
-import 'package:movie_app/features/Watchlist/data/models/watch_list_model.dart';
-import 'package:movie_app/features/Watchlist/domain/entity/watchlist_entity.dart';
+import '../../../MovieDetails/domain/entities/movie_details_entity.dart';
+import '../models/watch_list_model.dart';
+import '../../domain/entity/watchlist_entity.dart';
 
 extension WatchlistMapper on WatchlistMovieModel {
   WatchlistEntity toEntity() => WatchlistEntity(

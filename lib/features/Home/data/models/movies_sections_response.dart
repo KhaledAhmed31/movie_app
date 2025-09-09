@@ -1,4 +1,4 @@
-import 'package:movie_app/core/common/models/movie_response.dart';
+import '../../../../core/common/models/movie_response.dart';
 
 class SectionsMoviesResponse extends CommonMovieResponse {
   SectionsMoviesResponse({

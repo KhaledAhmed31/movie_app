@@ -1,5 +1,5 @@
-import 'package:movie_app/features/Home/data/models/movies_sections_response.dart';
-import 'package:movie_app/features/Home/domain/entities/section_movies_entity.dart';
+import '../models/movies_sections_response.dart';
+import '../../domain/entities/section_movies_entity.dart';
 
 extension SectionsMapper on SectionsMoviesResponse {
   SectionsMoviesEntity toEntity() {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/assets/assets.dart';
-import 'package:movie_app/core/colors/app_colors.dart';
-import 'package:movie_app/features/MainLayout/presentation/widgets/custom_nav_bar_item.dart';
+import '../../../../core/assets/assets.dart';
+import '../../../../core/colors/app_colors.dart';
+import 'custom_nav_bar_item.dart';
 
 class CustomNavBar extends StatelessWidget {
   const CustomNavBar({super.key, this.onTap, required this.currentIndex});

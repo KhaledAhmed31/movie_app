@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/features/MovieDetails/domain/entities/movie_details_entity.dart';
-import 'package:movie_app/features/Watchlist/data/repositories/watchlist_repo.dart';
-import 'package:movie_app/features/Watchlist/domain/entity/watchlist_entity.dart';
-import 'package:movie_app/features/Watchlist/presentation/cubit/watchlist_state.dart';
+import '../../../MovieDetails/domain/entities/movie_details_entity.dart';
+import '../../data/repositories/watchlist_repo.dart';
+import '../../domain/entity/watchlist_entity.dart';
+import 'watchlist_state.dart';
 
 @singleton
 class WatchlistCubit extends Cubit<WatchlistState> {

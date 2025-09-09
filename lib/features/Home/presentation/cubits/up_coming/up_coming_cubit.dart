@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/features/Home/domain/entities/section_movies_entity.dart';
-import 'package:movie_app/features/Home/domain/usecases/get_up_coming_use_case.dart';
-import 'package:movie_app/features/Home/presentation/cubits/up_coming/up_coming_states.dart';
+import '../../../domain/entities/section_movies_entity.dart';
+import '../../../domain/usecases/get_up_coming_use_case.dart';
+import 'up_coming_states.dart';
 @lazySingleton
 class UpComingCubit extends Cubit<UpComingStates>{
   final GetUpComingUseCase _upComingDateSource;

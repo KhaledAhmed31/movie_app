@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/features/MovieDetails/domain/entities/movie_details_entity.dart';
-import 'package:movie_app/features/MovieDetails/presentation/widgets/movie_info/movie_title.dart';
-import 'package:movie_app/features/MovieDetails/presentation/widgets/movie_info/extra_info.dart';
-import 'package:movie_app/features/MovieDetails/presentation/widgets/movie_info/movie_back_poster.dart';
-import 'package:movie_app/features/MovieDetails/presentation/widgets/movie_info/movie_poster.dart';
+import '../../../domain/entities/movie_details_entity.dart';
+import 'movie_title.dart';
+import 'extra_info.dart';
+import 'movie_back_poster.dart';
+import 'movie_poster.dart';
 
 class MovieInfo extends StatelessWidget {
   const MovieInfo({super.key, required this.movie});

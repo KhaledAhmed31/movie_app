@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/features/Home/domain/entities/section_movies_entity.dart';
-import 'package:movie_app/features/Home/domain/usecases/get_top_rated_use_case.dart';
-import 'package:movie_app/features/Home/presentation/cubits/top_rated_cubit/top_rated_state.dart';
+import '../../../domain/entities/section_movies_entity.dart';
+import '../../../domain/usecases/get_top_rated_use_case.dart';
+import 'top_rated_state.dart';
 @lazySingleton
 class TopRatedCubit extends Cubit<TopRatedStates> {
   final GetTopRatedUseCase _getTopRatedUseCase;

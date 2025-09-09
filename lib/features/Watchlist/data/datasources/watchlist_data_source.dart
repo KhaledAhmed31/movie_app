@@ -2,10 +2,10 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/core/di/dependency_injection.dart';
-import 'package:movie_app/core/errors/remote/remote_exception.dart';
-import 'package:movie_app/features/Watchlist/data/datasources/local_date_source.dart';
-import 'package:movie_app/features/Watchlist/data/models/watch_list_model.dart';
+import '../../../../core/di/dependency_injection.dart';
+import '../../../../core/errors/remote/remote_exception.dart';
+import 'local_date_source.dart';
+import '../models/watch_list_model.dart';
 
 @singleton
 class WatchlistDataSource {

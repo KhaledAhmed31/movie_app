@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/core/api/consts/api_consts.dart';
-import 'package:movie_app/core/errors/remote/remote_exception.dart';
-import 'package:movie_app/core/errors/remote/up_coming_exception.dart';
-import 'package:movie_app/features/Home/data/datasources/movies_data_source.dart';
+import '../../../../core/api/consts/api_consts.dart';
+import '../../../../core/errors/remote/remote_exception.dart';
+import '../../../../core/errors/remote/up_coming_exception.dart';
+import 'movies_data_source.dart';
 import '../models/movies_sections_response.dart';
 @lazySingleton
 

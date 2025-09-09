@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
-import 'package:movie_app/core/assets/assets.dart';
-import 'package:movie_app/features/MovieDetails/domain/entities/movie_details_entity.dart';
-import 'package:movie_app/features/Watchlist/presentation/cubit/watchlist_cubit.dart';
-import 'package:movie_app/features/Watchlist/presentation/cubit/watchlist_state.dart';
+import '../../../../core/assets/assets.dart';
+import '../../domain/entities/movie_details_entity.dart';
+import '../../../Watchlist/presentation/cubit/watchlist_cubit.dart';
+import '../../../Watchlist/presentation/cubit/watchlist_state.dart';
 
 class AddToWatchlistButton extends StatefulWidget {
   const AddToWatchlistButton({super.key, required this.movie});

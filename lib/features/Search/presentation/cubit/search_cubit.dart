@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/features/Home/domain/entities/section_movies_entity.dart';
-import 'package:movie_app/features/Search/domain/repositories/search_repo_interface.dart';
-import 'package:movie_app/features/Search/presentation/cubit/search_state.dart';
+import '../../../Home/domain/entities/section_movies_entity.dart';
+import '../../domain/repositories/search_repo_interface.dart';
+import 'search_state.dart';
 
 @lazySingleton
 class SearchCubit extends Cubit<SearchState> {

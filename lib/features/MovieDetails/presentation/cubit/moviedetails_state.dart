@@ -1,5 +1,5 @@
 
-import 'package:movie_app/features/MovieDetails/domain/entities/movie_details_entity.dart';
+import '../../domain/entities/movie_details_entity.dart';
 
 abstract class MovieDetailsState  {}
 

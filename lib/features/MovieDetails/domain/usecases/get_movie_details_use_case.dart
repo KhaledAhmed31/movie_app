@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/core/errors/failure/failure.dart';
-import 'package:movie_app/features/MovieDetails/domain/entities/movie_details_entity.dart';
-import 'package:movie_app/features/MovieDetails/domain/repositories/movie_details_repo_inerface.dart';
+import '../../../../core/errors/failure/failure.dart';
+import '../entities/movie_details_entity.dart';
+import '../repositories/movie_details_repo_inerface.dart';
 @singleton
 class GetMovieDetailsUseCase {
   final MovieDetailsRepoInterface movieDetailsRepoInterface;

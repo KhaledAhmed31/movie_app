@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/core/api/consts/api_consts.dart';
-import 'package:movie_app/core/errors/remote/movie_details_exception.dart';
-import 'package:movie_app/core/errors/remote/remote_exception.dart';
-import 'package:movie_app/features/MovieDetails/data/models/movie_details_response.dart';
+import '../../../../core/api/consts/api_consts.dart';
+import '../../../../core/errors/remote/movie_details_exception.dart';
+import '../../../../core/errors/remote/remote_exception.dart';
+import '../models/movie_details_response.dart';
 @singleton
 class MovieDetailsDataSource {
   final Dio _dio;

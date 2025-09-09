@@ -1,5 +1,5 @@
-import 'package:movie_app/features/MovieDetails/data/models/movie_details_response.dart';
-import 'package:movie_app/features/MovieDetails/domain/entities/movie_details_entity.dart';
+import '../models/movie_details_response.dart';
+import '../../domain/entities/movie_details_entity.dart';
 
 extension MovieDetailsMapper on MovieDetailsResponse {
 

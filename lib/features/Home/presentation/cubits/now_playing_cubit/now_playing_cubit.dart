@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/features/Home/domain/entities/section_movies_entity.dart';
-import 'package:movie_app/features/Home/domain/usecases/get_now_playing_use_case.dart';
-import 'package:movie_app/features/Home/presentation/cubits/now_playing_cubit/now_playing_states.dart';
+import '../../../domain/entities/section_movies_entity.dart';
+import '../../../domain/usecases/get_now_playing_use_case.dart';
+import 'now_playing_states.dart';
 
 @lazySingleton
 class NowPlayingCubit extends Cubit<NowPlayingStates> {

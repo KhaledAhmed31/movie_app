@@ -1,10 +1,10 @@
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/core/errors/app_exception.dart';
-import 'package:movie_app/core/errors/failure/failure.dart';
-import 'package:movie_app/features/Home/data/datasources/movies_data_source.dart';
-import 'package:movie_app/features/Home/data/mapper/sections_mapper.dart';
-import 'package:movie_app/features/Home/domain/entities/section_movies_entity.dart';
-import 'package:movie_app/features/Home/domain/repositories/movies_sections_repo_interface.dart';
+import '../../../../core/errors/app_exception.dart';
+import '../../../../core/errors/failure/failure.dart';
+import '../datasources/movies_data_source.dart';
+import '../mapper/sections_mapper.dart';
+import '../../domain/entities/section_movies_entity.dart';
+import '../../domain/repositories/movies_sections_repo_interface.dart';
 
 @LazySingleton(as: MoviesSectionsRepoInterface)
 class MoviesSectionRepo implements MoviesSectionsRepoInterface {

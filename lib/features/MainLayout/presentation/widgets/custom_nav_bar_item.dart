@@ -2,7 +2,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:movie_app/core/colors/app_colors.dart';
+import '../../../../core/colors/app_colors.dart';
 
 class CustomNavBarItem extends BottomNavigationBarItem {
   CustomNavBarItem({super.key, required String icon, required super.label})

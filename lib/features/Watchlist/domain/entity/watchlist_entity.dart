@@ -1,4 +1,4 @@
-import 'package:movie_app/features/Watchlist/data/models/watch_list_model.dart';
+import '../../data/models/watch_list_model.dart';
 
 class WatchlistEntity extends WatchlistMovieModel {
   WatchlistEntity({

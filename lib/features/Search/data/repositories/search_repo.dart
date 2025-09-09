@@ -1,10 +1,10 @@
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/core/errors/app_exception.dart';
-import 'package:movie_app/core/errors/failure/failure.dart';
-import 'package:movie_app/features/Home/data/mapper/sections_mapper.dart';
-import 'package:movie_app/features/Home/domain/entities/section_movies_entity.dart';
-import 'package:movie_app/features/Search/data/datasources/search_data_source.dart';
-import 'package:movie_app/features/Search/domain/repositories/search_repo_interface.dart';
+import '../../../../core/errors/app_exception.dart';
+import '../../../../core/errors/failure/failure.dart';
+import '../../../Home/data/mapper/sections_mapper.dart';
+import '../../../Home/domain/entities/section_movies_entity.dart';
+import '../datasources/search_data_source.dart';
+import '../../domain/repositories/search_repo_interface.dart';
 @LazySingleton(as: SearchRepoInterface)
 class SearchRepo implements SearchRepoInterface{
   final SearchDataSource _searchDataSource;

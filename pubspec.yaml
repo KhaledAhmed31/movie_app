@@ -1,21 +1,22 @@
 name: movie_app
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
   sdk: ^3.9.0
 
-dependencies: 
-  bloc: ^8.0.3
+dependencies:
   build_runner: ^2.7.0
   cached_network_image: ^3.4.1
   cloud_firestore: ^6.0.1
+  cupertino_icons: ^1.0.8
   dio: ^5.9.0
   firebase_core: ^4.1.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
+  flutter_offline: ^5.0.0
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.2.0
   get_it: ^8.2.0
@@ -27,11 +28,10 @@ dependencies:
   shared_preferences: ^2.5.3
 
 dev_dependencies:
+  flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^6.0.0
   injectable_generator: ^2.8.1
-
 
 flutter:
   assets:
@@ -68,4 +68,4 @@ flutter_assets:
   assets_path: assets/
   output_path: lib/core/assets/
   filename: app_icons.dart
-  field_prefix:
+  field_prefix: null

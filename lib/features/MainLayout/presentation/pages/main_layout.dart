@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:movie_app/features/Home/presentation/pages/home.dart';
-import 'package:movie_app/features/MainLayout/presentation/widgets/custom_nav_bar.dart';
-import 'package:movie_app/features/Search/presentation/pages/search.dart';
-import 'package:movie_app/features/Watchlist/presentation/pages/watchlist.dart';
+import '../../../Home/presentation/pages/home.dart';
+import '../widgets/custom_nav_bar.dart';
+import '../../../Search/presentation/pages/search.dart';
+import '../../../Watchlist/presentation/pages/watchlist.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({super.key});

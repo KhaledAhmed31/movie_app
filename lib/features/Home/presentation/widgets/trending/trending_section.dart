@@ -15,9 +15,9 @@ class TrendingSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 24.0.h),
-      child: BlocProvider<TrendingCubit>(
-        create: (context) => getIt.get<TrendingCubit>()..getTrendingMovies(),
+      padding: EdgeInsets.only(top: 24.0.h,bottom: 25.h),
+      child: BlocProvider<TrendingCubit>.value(
+        value: getIt.get<TrendingCubit>()..getTrendingMovies(),
         child: BlocBuilder<TrendingCubit, TrendingState>(
           builder: (context, state) {
             if (state is TrendingLoadingState) {
@@ -46,7 +46,7 @@ class TrendingSection extends StatelessWidget {
                 itemBuilder: (context, index) => TrendingCard(
                   index: index + 1,
                   imageUrl: movies[index].posterPath ?? '',
-                  id: movies[index].id??0,
+                  id: movies[index].id ?? 0,
                 ),
 
                 itemCount: 5,

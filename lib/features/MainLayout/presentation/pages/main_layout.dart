@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_offline/flutter_offline.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:movie_app/core/assets/assets.dart';
 import '../../../Home/presentation/pages/home.dart';
 import '../widgets/custom_nav_bar.dart';
 import '../../../Search/presentation/pages/search.dart';
@@ -38,21 +41,36 @@ class _MainLayoutState extends State<MainLayout> {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.light,
-      child: Scaffold(
-        body: PageView(
-          controller: pageController,
-          onPageChanged: (value) => setState(() => currentIndex = value),
-          children: pages,
-        ),
-        bottomNavigationBar: CustomNavBar(
-          currentIndex: currentIndex,
-          onTap: (index) {
-            pageController.animateToPage(
-              index,
-              duration: const Duration(milliseconds: 300),
-              curve: Curves.easeInOut,
-            );
-          },
+      child: SafeArea(
+        child: Scaffold(
+          body: OfflineBuilder(
+            connectivityBuilder: (context, value, child) {
+              bool connected = !value.contains(ConnectivityResult.none);
+              if (connected) {
+                return child;
+              } else {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [SvgPicture.asset(Assets.noInternet)],
+                );
+              }
+            },
+            child: PageView(
+              controller: pageController,
+              onPageChanged: (value) => setState(() => currentIndex = value),
+              children: pages,
+            ),
+          ),
+          bottomNavigationBar: CustomNavBar(
+            currentIndex: currentIndex,
+            onTap: (index) {
+              pageController.animateToPage(
+                index,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+              );
+            },
+          ),
         ),
       ),
     );

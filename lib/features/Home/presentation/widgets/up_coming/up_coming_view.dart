@@ -34,7 +34,7 @@ class UpComingView extends StatelessWidget {
                     crossAxisSpacing: 14.w,
                     mainAxisSpacing: 18.h,
                     mainAxisExtent: 146.h,
-                    maxCrossAxisExtent: 100.w,
+                    maxCrossAxisExtent: 3,
                   ),
                   PageIndecator(
                     onTap: (index) => cubit.getUpComingMovies(index),

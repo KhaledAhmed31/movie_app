@@ -37,5 +37,8 @@ class Assets {
   static const String notFound = "assets/icons/nomovies_icon.svg";
 
   static const String bookMark = "assets/icons/bookmark.json";
+  static const String noInternet = "assets/icons/no_internet.svg";
+
+  static const String brokenImage= "assets/icons/broken_image.svg";
 }
 

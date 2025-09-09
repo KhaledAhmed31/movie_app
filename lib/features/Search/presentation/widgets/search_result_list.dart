@@ -52,10 +52,10 @@ class SearchResultList extends StatelessWidget {
                 children: [
                   MoviesGrid(
                     movies: movies,
-                    crossAxisSpacing: 14.w,
+                    crossAxisSpacing: 18.w,
                     mainAxisSpacing: 18.h,
-                    mainAxisExtent: 146.h,
-                    maxCrossAxisExtent: 100.w,
+                    mainAxisExtent: 220.h,
+                    maxCrossAxisExtent: 2,
                   ),
                   PageIndecator(
                     onTap: (index) =>

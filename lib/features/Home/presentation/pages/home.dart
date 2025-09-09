@@ -28,31 +28,23 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin {
           SliverAppBar(
             centerTitle: false,
             titleSpacing: 0,
-            toolbarHeight: 55.h,
-            flexibleSpace: FlexibleSpaceBar(
-              titlePadding: EdgeInsets.only(bottom: 24.h),
-              title: Text(
-                'What do you want to watch?',
-                style: FontManager.getPoppinsSemiBoldStyle(
-                  fontSize: 18.sp,
-                  color: Colors.white,
-                ),
+            expandedHeight: 55.h,
+            title: Text(
+              'What do you want to watch?',
+              style: FontManager.getPoppinsSemiBoldStyle(
+                fontSize: 18.sp,
+                color: Colors.white,
               ),
             ),
           ),
-          SliverAppBar(
-            toolbarHeight: 10.h,
-            actionsPadding: EdgeInsets.zero,
-            flexibleSpace: FlexibleSpaceBar(
-              collapseMode: CollapseMode.pin,
-              background: CustomSearchBar(
-                pageController: widget.pageController,
-              ),
-            ),
+          SliverFloatingHeader(
+            snapMode: FloatingHeaderSnapMode.scroll,
+            child: CustomSearchBar(pageController: widget.pageController),
           ),
           SliverAppBar(
-            toolbarHeight: 220.h,
+            toolbarHeight: 275.h,
             flexibleSpace: const FlexibleSpaceBar(
+
               background: TrendingSection(),
             ),
           ),

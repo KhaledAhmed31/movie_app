@@ -39,7 +39,7 @@ class _SectonsViewState extends State<SectonsView>
             tabAlignment: TabAlignment.center,
             controller: tabController,
             indicatorColor: AppColors.grey,
-            labelPadding: EdgeInsets.only(bottom: 15.h, right: 6, left: 6),
+            labelPadding: EdgeInsets.only(bottom: 15.h, right: 6, left: 6,top: 10.h),
             isScrollable: true,
             physics: const NeverScrollableScrollPhysics(),
             indicatorSize: TabBarIndicatorSize.tab,

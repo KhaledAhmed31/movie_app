@@ -15,7 +15,7 @@ class MoviesGrid extends StatelessWidget {
   final double? mainAxisExtent;
   final double? crossAxisSpacing;
   final double? mainAxisSpacing;
-  final double maxCrossAxisExtent;
+  final int? maxCrossAxisExtent;
 
   final List<SectionsMovieEntity> movies;
   @override
@@ -23,11 +23,11 @@ class MoviesGrid extends StatelessWidget {
     return GridView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         mainAxisExtent: mainAxisExtent,
         crossAxisSpacing: crossAxisSpacing ?? 0,
         mainAxisSpacing: mainAxisSpacing ?? 0,
-        maxCrossAxisExtent: maxCrossAxisExtent,
+        crossAxisCount: maxCrossAxisExtent??2,
       ),
       itemBuilder: (context, index) =>
           SectionMovieCard(movie: movies[index]),

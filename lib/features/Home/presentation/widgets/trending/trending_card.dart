@@ -32,7 +32,7 @@ class TrendingCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: -32,
+            bottom: -35,
             left: -13,
             child: Stack(
               children: [

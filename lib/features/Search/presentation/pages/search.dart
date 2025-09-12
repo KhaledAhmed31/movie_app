@@ -1,6 +1,9 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movie_app/core/colors/app_colors.dart';
+import 'package:movie_app/features/Search/presentation/cubit/search_state.dart';
 import '../../../../core/di/dependency_injection.dart';
 import '../../../Home/presentation/widgets/custom_search_bar.dart';
 import '../cubit/search_cubit.dart';
@@ -14,16 +17,21 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> with AutomaticKeepAliveClientMixin {
-  late TextEditingController controller;
+  late TextEditingController textController;
+  late final ScrollController _controller;
+  final cubit = getIt.get<SearchCubit>();
   @override
   void initState() {
-    controller = TextEditingController();
     super.initState();
+    textController = TextEditingController();
+    _controller = ScrollController();
+    _controller.addListener(_scrollListener);
   }
 
   @override
   void dispose() {
-    controller.dispose();
+    textController.dispose();
+    _controller.dispose();
     super.dispose();
   }
 
@@ -33,31 +41,55 @@ class _SearchState extends State<Search> with AutomaticKeepAliveClientMixin {
     return BlocProvider<SearchCubit>(
       create: (context) => getIt.get<SearchCubit>(),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 15.0.w, ),
+        padding: EdgeInsets.symmetric(horizontal: 15.0.w),
         child: SafeArea(
           child: CustomScrollView(
+            controller: _controller,
             slivers: [
-              SliverToBoxAdapter(
-                child: SizedBox(height: 5.h),
-              ),
+              SliverToBoxAdapter(child: SizedBox(height: 5.h)),
               SliverAppBar(
-                floating: true,automaticallyImplyLeading: true,
-                  titleSpacing: 0,
-                  toolbarHeight: 60,backgroundColor: Colors.transparent,
-               title:  CustomSearchBar(controller: controller),
-                  ),
+                floating: true,
+                automaticallyImplyLeading: true,
+                titleSpacing: 0,
+                toolbarHeight: 60,
+                backgroundColor: Colors.transparent,
+                title: CustomSearchBar(controller: textController),
+              ),
               const SliverToBoxAdapter(child: SizedBox(height: 10)),
-              SliverList(delegate: SliverChildListDelegate([
-                SearchResultList(controller: controller)
-              ]))
-
-
-
-            ]
+              const SearchResultList(),
+              BlocBuilder<SearchCubit, SearchState>(
+                    builder: (context, state) {
+                      if (state is SearchGetMoreLoadingState) {
+                        return const SliverToBoxAdapter(
+                          child: SizedBox(
+                            height: 30,
+                            width: 30,
+                            child: Center(
+                              child: CircularProgressIndicator(
+                                color: AppColors.lightBlue,
+                              ),
+                            ),
+                          ),
+                        );
+                      }
+                      return const SliverToBoxAdapter(child: SizedBox(height: 40,));
+                    },
+                  )
+            ],
           ),
         ),
       ),
     );
+  }
+
+  void _scrollListener() {
+    if (_controller.position.pixels == _controller.position.maxScrollExtent) {
+      _loadMoreItems();
+    }
+  }
+
+  void _loadMoreItems() async {
+    await cubit.loadMoreMovies(query: textController.text);
   }
 
   @override

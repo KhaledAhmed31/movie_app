@@ -38,6 +38,23 @@ class SearchCubit extends Cubit<SearchState> {
     });
   }
 
+  Future<void> loadMoreMovies({required String query}) async {
+    if (currentPage < totalPages) {
+      emit(SearchGetMoreLoadingState());
+      currentPage += 1;
+      final (failure, result) = await _searchRepoInterface.searchMovies(
+        query: query,
+        page: currentPage,
+      );
+      if (failure != null) {
+        emit(SearchErrorState(failure.message));
+      } else {
+        movies.addAll(result?.results ?? []);
+        emit(SearchLoadedState());
+      }
+    }
+  }
+
   void clear() {
     movies = [];
     emit(SearchInitialStete());

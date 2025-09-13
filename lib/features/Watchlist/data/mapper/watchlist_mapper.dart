@@ -13,14 +13,15 @@ extension WatchlistMapper on WatchlistMovieModel {
     voteAverage: voteAverage,
   );
 }
+
 extension DetailsMapper on MovieDetailsEntity {
-  WatchlistEntity toModel() => WatchlistEntity(
-    id: id??0,
-    title: title??'',
-    runtime: runtime??0,
-    genere: genres?[0]??'',
-    posterPath: posterPath??'',
-    releaseDate: releaseDate??'',
-    voteAverage: voteAverage??0.0,
+  WatchlistEntity toWatchlistEntity() => WatchlistEntity(
+    id: id ?? 0,
+    title: title ?? '',
+    runtime: runtime ?? 0,
+    genere: genres?[0] ?? '',
+    posterPath: posterPath ?? '',
+    releaseDate: releaseDate ?? '',
+    voteAverage: voteAverage ?? 0.0,
   );
 }

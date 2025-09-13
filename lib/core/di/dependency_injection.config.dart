@@ -11,6 +11,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
+import 'package:hive/hive.dart' as _i979;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:movie_app/core/di/module.dart' as _i391;
 import 'package:movie_app/features/Home/data/datasources/now_playing_date_source.dart'
@@ -71,6 +72,8 @@ import 'package:movie_app/features/Watchlist/data/datasources/local_date_source.
     as _i613;
 import 'package:movie_app/features/Watchlist/data/datasources/watchlist_data_source.dart'
     as _i626;
+import 'package:movie_app/features/Watchlist/data/datasources/watchlist_hive_data_source.dart'
+    as _i126;
 import 'package:movie_app/features/Watchlist/data/repositories/watchlist_repo.dart'
     as _i602;
 import 'package:movie_app/features/Watchlist/presentation/cubit/watchlist_cubit.dart'
@@ -89,8 +92,21 @@ extension GetItInjectableX on _i174.GetIt {
       () => registerModule.sharedPreferences,
       preResolve: true,
     );
+    await gh.factoryAsync<_i979.BoxCollection>(
+      () => registerModule.myStorage,
+      preResolve: true,
+    );
+    await gh.factoryAsync<_i979.CollectionBox<Map<dynamic, dynamic>>>(
+      () => registerModule.watchlistBox,
+      preResolve: true,
+    );
     gh.singleton<_i626.WatchlistDataSource>(() => _i626.WatchlistDataSource());
     gh.lazySingleton<_i361.Dio>(() => registerModule.dio());
+    gh.lazySingleton<_i126.WatchlistHiveDataSource>(
+      () => _i126.WatchlistHiveDataSource(
+        gh<_i979.CollectionBox<Map<dynamic, dynamic>>>(),
+      ),
+    );
     gh.singleton<_i928.MovieDetailsDataSource>(
       () => _i928.MovieDetailsDataSource(gh<_i361.Dio>()),
     );
@@ -142,7 +158,7 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i998.GetUpComingUseCase(gh<_i413.MoviesSectionsRepoInterface>()),
     );
     gh.singleton<_i602.WatchlistRepo>(
-      () => _i602.WatchlistRepo(gh<_i626.WatchlistDataSource>()),
+      () => _i602.WatchlistRepo(gh<_i126.WatchlistHiveDataSource>()),
     );
     gh.lazySingleton<_i174.TrendingCubit>(
       () => _i174.TrendingCubit(gh<_i1044.GetTrendingUseCase>()),

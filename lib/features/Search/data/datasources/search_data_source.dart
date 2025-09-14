@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+
 import '../../../../core/api/consts/api_consts.dart';
 import '../../../../core/errors/remote/remote_exception.dart';
 import '../../../../core/errors/remote/search_exception.dart';

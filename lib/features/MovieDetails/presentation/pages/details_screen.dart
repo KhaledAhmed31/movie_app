@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
+
 import '../../../../core/colors/app_colors.dart';
 import '../../../../core/di/dependency_injection.dart';
 import '../../../../core/font/font_manager.dart';
@@ -10,7 +12,6 @@ import '../cubit/moviedetails_state.dart';
 import '../widgets/add_to_watchlist_button.dart';
 import '../widgets/movie_info/datails_taps.dart';
 import '../widgets/movie_info/movie_info.dart';
-import 'package:pull_to_refresh_flutter3/pull_to_refresh_flutter3.dart';
 
 class DetailsScreen extends StatefulWidget {
   const DetailsScreen({super.key, required this.movieId});

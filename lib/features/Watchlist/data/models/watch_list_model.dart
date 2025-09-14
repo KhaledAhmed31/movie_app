@@ -32,7 +32,7 @@ class WatchlistMovieModel {
     required this.voteAverage,
   });
 
-  WatchlistMovieModel.fromJson(Map<String, dynamic> json) {
+  WatchlistMovieModel.fromJson(Map<dynamic, dynamic> json) {
     id = json['id'];
     title = json['title'];
     genere = json['genere'];

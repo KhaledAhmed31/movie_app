@@ -2,11 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/core/colors/app_colors.dart';
-import 'package:movie_app/features/Search/presentation/cubit/search_state.dart';
+
+import '../../../../core/colors/app_colors.dart';
 import '../../../../core/di/dependency_injection.dart';
 import '../../../Home/presentation/widgets/custom_search_bar.dart';
 import '../cubit/search_cubit.dart';
+import '../cubit/search_state.dart';
 import '../widgets/search_result_list.dart';
 
 class Search extends StatefulWidget {

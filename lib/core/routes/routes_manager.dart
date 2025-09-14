@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
-import 'route_path.dart';
+
 import '../../features/MainLayout/presentation/pages/main_layout.dart';
 import '../../features/MovieDetails/presentation/pages/details_screen.dart';
+import 'route_path.dart';
 
 GoRouter router = GoRouter(
   initialLocation: RoutePath.mainLayout,

@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+
 import '../../../../core/errors/failure/failure.dart';
 import '../../../Home/domain/entities/section_movies_entity.dart';
 import '../repositories/search_repo_interface.dart';

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../domain/entities/section_movies_entity.dart';
 import 'section_movie_card.dart';
 

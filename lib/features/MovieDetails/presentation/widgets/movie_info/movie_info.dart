@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../domain/entities/movie_details_entity.dart';
-import 'movie_title.dart';
 import 'extra_info.dart';
 import 'movie_back_poster.dart';
 import 'movie_poster.dart';
+import 'movie_title.dart';
 
 class MovieInfo extends StatelessWidget {
   const MovieInfo({super.key, required this.movie});

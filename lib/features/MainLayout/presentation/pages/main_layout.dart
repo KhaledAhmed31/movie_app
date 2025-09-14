@@ -3,11 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_offline/flutter_offline.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:movie_app/core/assets/assets.dart';
+
+import '../../../../core/assets/assets.dart';
 import '../../../Home/presentation/pages/home.dart';
-import '../widgets/custom_nav_bar.dart';
 import '../../../Search/presentation/pages/search.dart';
 import '../../../Watchlist/presentation/pages/watchlist.dart';
+import '../widgets/custom_nav_bar.dart';
 
 class MainLayout extends StatefulWidget {
   const MainLayout({super.key});
@@ -42,12 +43,12 @@ class _MainLayoutState extends State<MainLayout> {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.light,
-      child: SafeArea(
+      child: SafeArea( 
         child: Scaffold(
           body: OfflineBuilder(
             connectivityBuilder: (context, value, child) {
               bool connected = !value.contains(ConnectivityResult.none);
-              if (connected) {
+              if (connected) { 
                 return child;
               } else {
                 return Column(

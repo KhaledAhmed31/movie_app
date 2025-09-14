@@ -1,39 +1,43 @@
 import 'package:injectable/injectable.dart';
+import 'package:movie_app/core/di/dependency_injection.dart';
+import 'package:movie_app/features/Watchlist/data/datasources/watchlist_data_source.dart';
+import 'package:movie_app/features/Watchlist/data/datasources/watchlist_sqflite_data_source.dart';
 import '../../../../core/errors/app_exception.dart';
 import '../../../../core/errors/failure/failure.dart';
 import '../../../MovieDetails/domain/entities/movie_details_entity.dart';
-import '../datasources/watchlist_data_source.dart';
 import '../mapper/watchlist_mapper.dart';
 import '../models/watch_list_model.dart';
 import '../../domain/entity/watchlist_entity.dart';
-@singleton
+
+@lazySingleton
 class WatchlistRepo {
   final WatchlistDataSource _watchlistDataSource;
 
-  WatchlistRepo(this._watchlistDataSource);
+  WatchlistRepo():_watchlistDataSource = getIt<WatchlistSqfliteDataSource>();
 
   Future<(Failure?, List<WatchlistEntity>?)> getWatchlist() async {
     try {
       WatchlistModel watchlistModel = await _watchlistDataSource.getWatchlist();
-      return (null,watchlistModel.movies.map((e) => e.toEntity()).toList());
-    }on AppException catch (e) {
+      return (null, watchlistModel.movies.map((e) => e.toEntity()).toList());
+    } on AppException catch (e) {
       return (Failure(e.message), null);
     }
   }
 
-   Future<(Failure?, List<WatchlistEntity>?)> deleteFromWatchlist(MovieDetailsEntity movie) async {
+  Future<(Failure?, void)> deleteFromWatchlist(MovieDetailsEntity movie) async {
     try {
-      WatchlistModel watchlistModel = await _watchlistDataSource.removeFromWatchlist( movie.toModel());
-      return (null,watchlistModel.movies.map((e) => e.toEntity()).toList());
-    }on AppException catch (e) {
+      await _watchlistDataSource.deleteFromWatchlist(movie.toWatchlistEntity());
+      return (null, null);
+    } on AppException catch (e) {
       return (Failure(e.message), null);
     }
   }
-   Future<(Failure?, List<WatchlistEntity>?)> addToWatchlist(MovieDetailsEntity movie)  async {
+
+  Future<(Failure?, void)> addToWatchlist(MovieDetailsEntity movie) async {
     try {
-      WatchlistModel watchlistModel = await _watchlistDataSource.addToWatchlist( movie.toModel());
-      return (null,watchlistModel.movies.map((e) => e.toEntity()).toList());
-    }on AppException catch (e) {
+      await _watchlistDataSource.addToWatchlist(movie.toWatchlistEntity());
+      return (null, null);
+    } on AppException catch (e) {
       return (Failure(e.message), null);
     }
   }

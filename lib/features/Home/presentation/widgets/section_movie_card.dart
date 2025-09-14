@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:redacted/redacted.dart';
+
 import '../../../../core/api/consts/api_consts.dart';
 import '../../../../core/assets/assets.dart';
 import '../../../../core/routes/route_path.dart';
 import '../../domain/entities/section_movies_entity.dart';
-import 'package:redacted/redacted.dart';
 
 class SectionMovieCard extends StatelessWidget {
   const SectionMovieCard({super.key, required this.movie});

@@ -1,9 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:redacted/redacted.dart';
+
 import '../../../../../core/api/consts/api_consts.dart';
 import 'rating_pad.dart';
-import 'package:redacted/redacted.dart';
 
 class MovieBackPoster extends StatelessWidget {
   const MovieBackPoster({super.key, required this.pics, required this.rating});

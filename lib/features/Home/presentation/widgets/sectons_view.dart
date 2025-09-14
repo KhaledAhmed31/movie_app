@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../../core/colors/app_colors.dart';
 import 'now_playing/now_playing_view.dart';
 import 'popular/popular_view.dart';

@@ -1,10 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+
 import '../../../../core/api/consts/api_consts.dart';
 import '../../../../core/errors/remote/remote_exception.dart';
 import '../../../../core/errors/remote/top_rated_exception.dart';
-import 'movies_data_source.dart';
 import '../models/movies_sections_response.dart';
+import 'movies_data_source.dart';
 
 @lazySingleton
 class TopRatedDateSource implements MoviesDataSource {

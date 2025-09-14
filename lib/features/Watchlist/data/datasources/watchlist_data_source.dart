@@ -1,5 +1,5 @@
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/features/Watchlist/data/models/watch_list_model.dart';
+import '../models/watch_list_model.dart';
 
 @factoryMethod
 abstract class WatchlistDataSource {

@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/core/di/dependency_injection.dart';
-import 'package:movie_app/features/Watchlist/data/datasources/watchlist_data_source.dart';
-import 'package:movie_app/features/Watchlist/data/datasources/watchlist_sqflite_data_source.dart';
+import '../../../../core/di/dependency_injection.dart';
+import '../datasources/watchlist_data_source.dart';
+import '../datasources/watchlist_sqflite_data_source.dart';
 import '../../../../core/errors/app_exception.dart';
 import '../../../../core/errors/failure/failure.dart';
 import '../../../MovieDetails/domain/entities/movie_details_entity.dart';

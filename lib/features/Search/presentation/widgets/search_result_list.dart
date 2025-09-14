@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../Home/presentation/widgets/section_movie_card.dart';
+
 import '../../../../core/assets/assets.dart';
 import '../../../../core/colors/app_colors.dart';
 import '../../../../core/di/dependency_injection.dart';
 import '../../../../core/font/font_manager.dart';
+import '../../../Home/presentation/widgets/section_movie_card.dart';
 import '../cubit/search_cubit.dart';
 import '../cubit/search_state.dart';
 

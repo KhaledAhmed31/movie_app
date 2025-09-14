@@ -2,8 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import '../../data/mapper/watchlist_mapper.dart';
+
 import '../../../MovieDetails/domain/entities/movie_details_entity.dart';
+import '../../data/mapper/watchlist_mapper.dart';
 import '../../data/repositories/watchlist_repo.dart';
 import '../../domain/entity/watchlist_entity.dart';
 import 'watchlist_state.dart';
@@ -16,10 +17,11 @@ class WatchlistCubit extends Cubit<WatchlistState> {
     getWatchlist();
   }
 
+
   Future<void> getWatchlist() async {
     emit(WatchlistLoadingState());
     final (failure, result) = await _watchlistRepo.getWatchlist();
-
+    
     if (result != null) {
       movies = result;
       emit(WatchlistLoadedState());

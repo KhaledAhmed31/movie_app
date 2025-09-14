@@ -2,11 +2,12 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+
 import '../../../../core/api/consts/api_consts.dart';
 import '../../../../core/errors/remote/remote_exception.dart';
 import '../../../../core/errors/remote/trending_exception.dart';
-import 'movies_data_source.dart';
 import '../models/movies_sections_response.dart';
+import 'movies_data_source.dart';
 
 @lazySingleton
 class TrendingDateSource implements MoviesDataSource {

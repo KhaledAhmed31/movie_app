@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/features/Watchlist/data/datasources/watchlist_data_source.dart';
+import 'watchlist_data_source.dart';
 import '../../../../core/errors/local/watchlist_exception.dart';
 import '../models/watch_list_model.dart';
 

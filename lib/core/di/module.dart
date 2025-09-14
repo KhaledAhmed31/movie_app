@@ -1,9 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
+import 'package:movie_app/core/db/db_config.dart';
 import 'package:path_provider/path_provider.dart';
-import '../api/consts/api_consts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sqflite/sqflite.dart';
+
+import '../api/consts/api_consts.dart';
 
 @module
 abstract class RegisterModule {
@@ -29,4 +32,8 @@ abstract class RegisterModule {
   @preResolve
   Future<CollectionBox<Map>> get watchlistBox async =>
       (await myStorage).openBox<Map>("watchlist");
+
+
+  @preResolve
+  Future<Database> get myDb async => await getDb;
 }

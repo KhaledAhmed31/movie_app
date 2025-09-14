@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+
 import '../../../domain/entities/section_movies_entity.dart';
 import '../../../domain/usecases/get_up_coming_use_case.dart';
 import 'up_coming_states.dart';

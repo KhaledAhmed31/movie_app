@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'route_path.dart';
+
 import '../../features/MainLayout/presentation/pages/main_layout.dart';
 import '../../features/MovieDetails/presentation/pages/details_screen.dart';
+import 'route_path.dart';
 
 class RouteGenerator {
   Route generateRoute(RouteSettings settings) {

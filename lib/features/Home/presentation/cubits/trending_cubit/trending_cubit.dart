@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+
 import '../../../domain/entities/section_movies_entity.dart';
 import '../../../domain/usecases/get_trending_use_case.dart';
 import 'trending_state.dart';

@@ -1,69 +1,7 @@
-import 'dart:developer';
+import 'package:movie_app/features/Watchlist/data/models/watch_list_model.dart';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:injectable/injectable.dart';
-import '../../../../core/di/dependency_injection.dart';
-import '../../../../core/errors/remote/remote_exception.dart';
-import 'local_date_source.dart';
-import '../models/watch_list_model.dart';
-
-@singleton
-class WatchlistDataSource {
-  static final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  static final LocalDateSource _localDateSource = getIt<LocalDateSource>();
-
-  static DocumentReference<WatchlistModel> get myDocument =>
-      getWatchlistDocument();
-
-  Future<WatchlistModel> addToWatchlist(WatchlistMovieModel movie) async {
-    try {
-      await myDocument
-          .update({
-            "movies": FieldValue.arrayUnion([movie.toJson()]),
-          })
-          .timeout(const Duration(seconds: 3),onTimeout: () => throw RemoteException( message: "Time out"),);
-      return await getWatchlist() .timeout(const Duration(seconds: 3),onTimeout: () => throw RemoteException( message: "Time out"),);
-    } catch (e) {
-      log("Faild to add from the list");
-
-      throw RemoteException(message: "Faild to remove from the list");
-    }
-  }
-
-  Future<WatchlistModel> removeFromWatchlist(WatchlistMovieModel movie) async {
-    try {
-      await myDocument.update({
-        "movies": FieldValue.arrayRemove([movie.toJson()]),
-      }) .timeout(const Duration(seconds: 3),onTimeout: () => throw RemoteException( message: "Time out"),);
-      return await getWatchlist() .timeout(const Duration(seconds: 3),onTimeout: () => throw RemoteException( message: "Time out"),);
-    } catch (e) {
-      log("Faild to remove from the list");
-      throw RemoteException(message: "Faild to remove from the list");
-    }
-  }
-
-  Future<WatchlistModel> getWatchlist() async {
-    DocumentSnapshot<WatchlistModel> snapshot = await myDocument.get();
-    return snapshot.data() ?? WatchlistModel(movies: []);
-  }
-
-  static DocumentReference<WatchlistModel> getWatchlistDocument() {
-    String userId = _localDateSource.getUserId();
-
-    if (userId.isEmpty) {
-      DocumentReference<WatchlistModel> doc = getUserCollection().doc()
-        ..set(WatchlistModel(movies: []));
-      _localDateSource.saveUserId(doc.id);
-      return doc;
-    }
-    return getUserCollection().doc(userId);
-  }
-
-  static CollectionReference<WatchlistModel> getUserCollection() => _firestore
-      .collection("users")
-      .withConverter<WatchlistModel>(
-        fromFirestore: (snapshot, _) =>
-            WatchlistModel.fromJson(snapshot.data()!),
-        toFirestore: (watchlistModel, _) => watchlistModel.toJson(),
-      );
+abstract class WatchlistDataSource {
+  Future<void> addToWatchlist(WatchlistMovieModel movie);
+  Future<void> deleteFromWatchlist(WatchlistMovieModel movie);
+  Future<WatchlistModel> getWatchlist();
 }

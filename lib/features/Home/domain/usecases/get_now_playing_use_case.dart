@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+
 import '../../../../core/di/dependency_injection.dart';
 import '../../../../core/errors/failure/failure.dart';
 import '../../data/datasources/now_playing_date_source.dart';

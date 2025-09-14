@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+
 import '../../../Home/domain/entities/section_movies_entity.dart';
 import '../../domain/repositories/search_repo_interface.dart';
 import 'search_state.dart';

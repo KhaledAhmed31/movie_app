@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:redacted/redacted.dart';
+
 import '../../../../core/api/consts/api_consts.dart';
 import '../../../../core/assets/assets.dart';
 import '../../../../core/colors/app_colors.dart';
@@ -10,7 +12,6 @@ import '../../../../core/font/font_manager.dart';
 import '../../../../core/routes/route_path.dart';
 import '../../../MovieDetails/presentation/widgets/movie_info/rating_pad.dart';
 import '../../domain/entity/watchlist_entity.dart';
-import 'package:redacted/redacted.dart';
 
 class WatchlistCard extends StatelessWidget {
   const WatchlistCard({super.key, required this.movie});

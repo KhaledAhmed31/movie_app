@@ -1,10 +1,11 @@
 import 'package:injectable/injectable.dart';
+
 import '../../../../core/errors/app_exception.dart';
 import '../../../../core/errors/failure/failure.dart';
 import '../../../Home/data/mapper/sections_mapper.dart';
 import '../../../Home/domain/entities/section_movies_entity.dart';
-import '../datasources/search_data_source.dart';
 import '../../domain/repositories/search_repo_interface.dart';
+import '../datasources/search_data_source.dart';
 @LazySingleton(as: SearchRepoInterface)
 class SearchRepo implements SearchRepoInterface{
   final SearchDataSource _searchDataSource;

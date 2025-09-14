@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/features/Watchlist/data/mapper/watchlist_mapper.dart';
+import '../../data/mapper/watchlist_mapper.dart';
 import '../../../MovieDetails/domain/entities/movie_details_entity.dart';
 import '../../data/repositories/watchlist_repo.dart';
 import '../../domain/entity/watchlist_entity.dart';

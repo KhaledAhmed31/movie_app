@@ -12,12 +12,10 @@ import 'package:sqflite/sqflite.dart';
   Future<void> _initDb(Database db, int version) async {
     await db.execute("""\r
       CREATE TABLE IF NOT EXISTS watchlist (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        movieId INTEGER,
-        movieTitle TEXT,
-        moviePoster TEXT,
-        movieReleaseDate TEXT, 
-        movieRating TEXT,
+        id INTEGER,
+        title TEXT,
+        posterPath TEXT,
+        releaseDate TEXT, 
         genre TEXT,
         runtime INTEGER,
         voteAverage REAL

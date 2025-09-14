@@ -1,4 +1,7 @@
 import 'package:injectable/injectable.dart';
+import 'package:movie_app/core/di/dependency_injection.dart';
+import 'package:movie_app/features/Watchlist/data/datasources/watchlist_data_source.dart';
+import 'package:movie_app/features/Watchlist/data/datasources/watchlist_hive_data_source.dart';
 import 'package:movie_app/features/Watchlist/data/datasources/watchlist_sqflite_data_source.dart';
 import '../../../../core/errors/app_exception.dart';
 import '../../../../core/errors/failure/failure.dart';
@@ -9,14 +12,13 @@ import '../../domain/entity/watchlist_entity.dart';
 
 @singleton
 class WatchlistRepo {
-  final WatchlistSqfliteDataSource _watchlistDataSource;
+  final WatchlistDataSource _watchlistDataSource;
 
   WatchlistRepo(this._watchlistDataSource);
 
   Future<(Failure?, List<WatchlistEntity>?)> getWatchlist() async {
     try {
-      WatchlistModel watchlistModel = await _watchlistDataSource
-          .getWatchlist();
+      WatchlistModel watchlistModel = await _watchlistDataSource.getWatchlist();
       return (null, watchlistModel.movies.map((e) => e.toEntity()).toList());
     } on AppException catch (e) {
       return (Failure(e.message), null);
@@ -25,9 +27,7 @@ class WatchlistRepo {
 
   Future<(Failure?, void)> deleteFromWatchlist(MovieDetailsEntity movie) async {
     try {
-      await _watchlistDataSource.deleteFromWatchlist(
-        movie.toWatchlistEntity(),
-      );
+      await _watchlistDataSource.deleteFromWatchlist(movie.toWatchlistEntity());
       return (null, null);
     } on AppException catch (e) {
       return (Failure(e.message), null);

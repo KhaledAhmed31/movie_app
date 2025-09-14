@@ -9,7 +9,8 @@ import '../../../../core/errors/remote/remote_exception.dart';
 import '../models/watch_list_model.dart';
 import 'local_date_source.dart';
 
-class WatchlistFirebaseDataSource extends WatchlistDataSource {
+@lazySingleton
+class WatchlistFirebaseDataSource implements WatchlistDataSource {
   static final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   static final LocalDateSource _localDateSource = getIt<LocalDateSource>();
 

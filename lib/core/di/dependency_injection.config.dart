@@ -70,8 +70,6 @@ import 'package:movie_app/features/Search/presentation/cubit/search_cubit.dart'
     as _i851;
 import 'package:movie_app/features/Watchlist/data/datasources/local_date_source.dart'
     as _i613;
-import 'package:movie_app/features/Watchlist/data/datasources/watchlist_data_source.dart'
-    as _i626;
 import 'package:movie_app/features/Watchlist/data/datasources/watchlist_firebase_data_source.dart'
     as _i155;
 import 'package:movie_app/features/Watchlist/data/datasources/watchlist_hive_data_source.dart'
@@ -110,6 +108,7 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.lazySingleton<_i361.Dio>(() => registerModule.dio());
+    gh.lazySingleton<_i602.WatchlistRepo>(() => _i602.WatchlistRepo());
     gh.lazySingleton<_i155.WatchlistFirebaseDataSource>(
       () => _i155.WatchlistFirebaseDataSource(),
     );
@@ -148,6 +147,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i535.MovieDetailsRepoInterface>(
       () => _i292.MovieDetailsRepo(gh<_i928.MovieDetailsDataSource>()),
     );
+    gh.lazySingleton<_i34.WatchlistSqfliteDataSource>(
+      () => _i34.WatchlistSqfliteDataSource(gh<_i779.Database>()),
+    );
     gh.singleton<_i492.GetMovieDetailsUseCase>(
       () => _i492.GetMovieDetailsUseCase(
         movieDetailsRepoInterface: gh<_i535.MovieDetailsRepoInterface>(),
@@ -167,12 +169,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.lazySingleton<_i998.GetUpComingUseCase>(
       () => _i998.GetUpComingUseCase(gh<_i413.MoviesSectionsRepoInterface>()),
-    );
-    gh.lazySingleton<_i626.WatchlistDataSource>(
-      () => _i34.WatchlistSqfliteDataSource(gh<_i779.Database>()),
-    );
-    gh.singleton<_i602.WatchlistRepo>(
-      () => _i602.WatchlistRepo(gh<_i626.WatchlistDataSource>()),
     );
     gh.lazySingleton<_i174.TrendingCubit>(
       () => _i174.TrendingCubit(gh<_i1044.GetTrendingUseCase>()),

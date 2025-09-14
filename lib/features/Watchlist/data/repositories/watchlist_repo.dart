@@ -1,7 +1,6 @@
 import 'package:injectable/injectable.dart';
 import 'package:movie_app/core/di/dependency_injection.dart';
 import 'package:movie_app/features/Watchlist/data/datasources/watchlist_data_source.dart';
-import 'package:movie_app/features/Watchlist/data/datasources/watchlist_hive_data_source.dart';
 import 'package:movie_app/features/Watchlist/data/datasources/watchlist_sqflite_data_source.dart';
 import '../../../../core/errors/app_exception.dart';
 import '../../../../core/errors/failure/failure.dart';
@@ -10,11 +9,11 @@ import '../mapper/watchlist_mapper.dart';
 import '../models/watch_list_model.dart';
 import '../../domain/entity/watchlist_entity.dart';
 
-@singleton
+@lazySingleton
 class WatchlistRepo {
   final WatchlistDataSource _watchlistDataSource;
 
-  WatchlistRepo(this._watchlistDataSource);
+  WatchlistRepo():_watchlistDataSource = getIt<WatchlistSqfliteDataSource>();
 
   Future<(Failure?, List<WatchlistEntity>?)> getWatchlist() async {
     try {

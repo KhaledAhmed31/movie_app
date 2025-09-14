@@ -3,7 +3,7 @@ import 'package:movie_app/features/Watchlist/data/datasources/watchlist_data_sou
 import 'package:movie_app/features/Watchlist/data/models/watch_list_model.dart';
 import 'package:sqflite/sqflite.dart';
 
-@LazySingleton(as: WatchlistDataSource)
+@lazySingleton
 class WatchlistSqfliteDataSource implements WatchlistDataSource {
   final Database _myDb;
   WatchlistSqfliteDataSource(this._myDb);

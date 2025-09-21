@@ -6,7 +6,8 @@ import 'package:sqflite/sqflite.dart';
     if (_db != null) return _db!;
     final path = await getDatabasesPath();
     final dbPath = "$path/$dbName.db";
-    return await openDatabase(dbPath, onCreate: _initDb,version: 1);
+    _db = await openDatabase(dbPath, onCreate: _initDb,version: 1);
+    return _db!;
   }
 
   Future<void> _initDb(Database db, int version) async {

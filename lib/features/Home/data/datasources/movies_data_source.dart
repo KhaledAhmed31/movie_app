@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+
 import '../models/movies_sections_response.dart';
 
 @factoryMethod

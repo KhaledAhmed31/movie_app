@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/features/Watchlist/data/datasources/watchlist_data_source.dart';
+import 'watchlist_data_source.dart';
 
 import '../../../../core/di/dependency_injection.dart';
 import '../../../../core/errors/remote/remote_exception.dart';

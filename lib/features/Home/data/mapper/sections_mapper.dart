@@ -1,5 +1,5 @@
-import '../models/movies_sections_response.dart';
 import '../../domain/entities/section_movies_entity.dart';
+import '../models/movies_sections_response.dart';
 
 extension SectionsMapper on SectionsMoviesResponse {
   SectionsMoviesEntity toEntity() {

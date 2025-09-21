@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
-import 'package:movie_app/features/Watchlist/data/datasources/watchlist_data_source.dart';
-import 'package:movie_app/features/Watchlist/data/models/watch_list_model.dart';
+import 'watchlist_data_source.dart';
+import '../models/watch_list_model.dart';
 import 'package:sqflite/sqflite.dart';
 
 @lazySingleton

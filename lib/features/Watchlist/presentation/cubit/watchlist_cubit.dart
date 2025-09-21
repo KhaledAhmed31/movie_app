@@ -21,7 +21,7 @@ class WatchlistCubit extends Cubit<WatchlistState> {
   Future<void> getWatchlist() async {
     emit(WatchlistLoadingState());
     final (failure, result) = await _watchlistRepo.getWatchlist();
-    
+
     if (result != null) {
       movies = result;
       emit(WatchlistLoadedState());

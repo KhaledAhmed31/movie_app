@@ -13,20 +13,23 @@ class SearchCubit extends Cubit<SearchState> {
   int currentPage = 1;
   int totalPages = 1;
   Timer? _debounce;
+  String query = '';
   List<SectionsMovieEntity> movies = [];
   SearchCubit(this._searchRepoInterface) : super(SearchInitialStete());
 
-  Future<void> searchMovies({required String query,page=1}) async {
+  Future<void> searchMovies({required String query, page = 1}) async {
     if (_debounce?.isActive ?? false) _debounce?.cancel();
+    if (this.query == query.trim()) return;
     if (query.isEmpty) {
       clear();
       return;
     }
     _debounce = Timer(const Duration(milliseconds: 700), () async {
+      this.query = query.trim();
       emit(SearchLoadingState());
       final (failure, result) = await _searchRepoInterface.searchMovies(
         query: query,
-        page: page
+        page: page,
       );
       if (failure != null) {
         emit(SearchErrorState(failure.message));
@@ -48,7 +51,7 @@ class SearchCubit extends Cubit<SearchState> {
         page: currentPage,
       );
       if (failure != null) {
-        emit(SearchErrorState(failure.message));
+                emit(SearchErrorState(failure.message));
       } else {
         movies.addAll(result?.results ?? []);
         emit(SearchLoadedState());

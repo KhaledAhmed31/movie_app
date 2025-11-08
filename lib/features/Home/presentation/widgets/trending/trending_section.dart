@@ -18,7 +18,8 @@ class TrendingSection extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: 24.0.h,bottom: 25.h),
       child: BlocProvider<TrendingCubit>.value(
-        value: getIt.get<TrendingCubit>()..getTrendingMovies(),
+        value: getIt.get<TrendingCubit>(),
+       // value: getIt.get<TrendingCubit>()..getTrendingMovies(),
         child: BlocBuilder<TrendingCubit, TrendingState>(
           builder: (context, state) {
             if (state is TrendingLoadingState) {

@@ -68,7 +68,7 @@ import 'package:movie_app/features/Search/domain/usecases/search_use_case.dart'
     as _i336;
 import 'package:movie_app/features/Search/presentation/cubit/search_cubit.dart'
     as _i851;
-import 'package:movie_app/features/Watchlist/data/datasources/local_date_source.dart'
+import 'package:movie_app/features/Watchlist/data/datasources/shared_preferences_data_source.dart'
     as _i613;
 import 'package:movie_app/features/Watchlist/data/datasources/watchlist_firebase_data_source.dart'
     as _i155;
@@ -108,10 +108,10 @@ extension GetItInjectableX on _i174.GetIt {
       preResolve: true,
     );
     gh.lazySingleton<_i361.Dio>(() => registerModule.dio());
-    gh.lazySingleton<_i602.WatchlistRepo>(() => _i602.WatchlistRepo());
     gh.lazySingleton<_i155.WatchlistFirebaseDataSource>(
       () => _i155.WatchlistFirebaseDataSource(),
     );
+    gh.lazySingleton<_i602.WatchlistRepo>(() => _i602.WatchlistRepo());
     gh.lazySingleton<_i126.WatchlistHiveDataSource>(
       () => _i126.WatchlistHiveDataSource(
         gh<_i979.CollectionBox<Map<dynamic, dynamic>>>(),

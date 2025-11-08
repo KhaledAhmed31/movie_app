@@ -50,7 +50,9 @@ class _PageIndecatorState extends State<PageIndecator> {
 
           itemBuilder: (context, index) => GestureDetector(
             onTap: () {
-              widget.onTap(index + 1);
+              if (widget.selectedPage != index + 1) {
+                widget.onTap(index + 1);
+              }
             },
             child: SizedBox(
               width: 40.w,

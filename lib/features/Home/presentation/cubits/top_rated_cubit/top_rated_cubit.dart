@@ -26,4 +26,9 @@ class TopRatedCubit extends Cubit<TopRatedStates> {
       emit(TopRatedLoadedState());
     }
   }
+ 
+
 }
+
+
+

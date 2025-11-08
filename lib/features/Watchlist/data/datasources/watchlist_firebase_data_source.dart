@@ -7,7 +7,7 @@ import 'watchlist_data_source.dart';
 import '../../../../core/di/dependency_injection.dart';
 import '../../../../core/errors/remote/remote_exception.dart';
 import '../models/watch_list_model.dart';
-import 'local_date_source.dart';
+import 'shared_preferences_data_source.dart';
 
 @lazySingleton
 class WatchlistFirebaseDataSource implements WatchlistDataSource {
@@ -29,7 +29,6 @@ class WatchlistFirebaseDataSource implements WatchlistDataSource {
             onTimeout: () => throw RemoteException(message: "Time out"),
           );
     } catch (e) {
-      log("Faild to add from the list");
 
       throw RemoteException(message: "Faild to remove from the list");
     }

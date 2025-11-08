@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,41 +42,23 @@ class _SearchState extends State<Search> with AutomaticKeepAliveClientMixin {
       create: (context) => getIt.get<SearchCubit>(),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15.0.w),
-        child: SafeArea(
-          child: CustomScrollView(
-            controller: _controller,
-            slivers: [
-              SliverToBoxAdapter(child: SizedBox(height: 5.h)),
-              SliverAppBar(
-                floating: true,
-                automaticallyImplyLeading: true,
-                titleSpacing: 0,
-                toolbarHeight: 60,
-                backgroundColor: Colors.transparent,
-                title: CustomSearchBar(controller: textController),
-              ),
-              const SliverToBoxAdapter(child: SizedBox(height: 10)),
-              const SearchResultList(),
-              BlocBuilder<SearchCubit, SearchState>(
-                    builder: (context, state) {
-                      if (state is SearchGetMoreLoadingState) {
-                        return const SliverToBoxAdapter(
-                          child: SizedBox(
-                            height: 30,
-                            width: 30,
-                            child: Center(
-                              child: CircularProgressIndicator(
-                                color: AppColors.lightBlue,
-                              ),
-                            ),
-                          ),
-                        );
-                      }
-                      return const SliverToBoxAdapter(child: SizedBox(height: 40,));
-                    },
-                  )
-            ],
-          ),
+        child: CustomScrollView(
+          cacheExtent: 50,
+          controller: _controller,
+          slivers: [
+            SliverToBoxAdapter(child: SizedBox(height: 5.h)),
+            SliverAppBar(
+              floating: true,
+              automaticallyImplyLeading: true,
+              titleSpacing: 0,
+              toolbarHeight: 60,
+              backgroundColor: Colors.transparent,
+              title: CustomSearchBar(controller: textController),
+            ),
+            const SliverToBoxAdapter(child: SizedBox(height: 10)),
+            const SearchResultList(),
+            const LazyLoading(),
+          ],
         ),
       ),
     );
@@ -95,4 +76,28 @@ class _SearchState extends State<Search> with AutomaticKeepAliveClientMixin {
 
   @override
   bool get wantKeepAlive => true;
+}
+
+class LazyLoading extends StatelessWidget {
+  const LazyLoading({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SearchCubit, SearchState>(
+      builder: (context, state) {
+        if (state is SearchGetMoreLoadingState) {
+          return const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 30,
+              width: 30,
+              child: Center(
+                child: CircularProgressIndicator(color: AppColors.lightBlue),
+              ),
+            ),
+          );
+        }
+        return const SliverToBoxAdapter(child: SizedBox(height: 40));
+      },
+    );
+  }
 }
